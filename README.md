@@ -2,6 +2,8 @@
 
 Projeto de um semáforo de trânsito (veículos + pedestres) programado em no microcontrolador **ATmega328P**, sem usar as bibliotecas do framework Arduino. O projeto é compilado com **PlatformIO** e pode ser validado em simulação com a plataforma **SimulIDE** (arquivo `sim/simulation.sim1`).
 
+[**Link do vídeo de demonstração**](https://youtube.com/shorts/JgIzdkicUE0)
+
 ---
 
 ## Estrutura do Projeto
@@ -110,7 +112,7 @@ Definidos no topo do `main.c` (valores em segundos):
 
 ---
 
-## 🔧 Compilação com PlatformIO
+## Compilação com PlatformIO
 
 Configuração do projeto (`platformio.ini`):
 
@@ -136,7 +138,7 @@ cp .pio/build/ATmega328P/firmware.hex sim/firmware.hex
 ---
 
 
-## 🖥️ Simulação no SimulIDE
+## Simulação no SimulIDE
 
 O arquivo **`sim/simulation.sim1`** contém o circuito completo, criado no **SimulIDE 1.1.0-SR2**. Ele fica na pasta `sim/`, junto do `firmware.hex` gerado pela compilação com o PlatformIO.
 
@@ -159,8 +161,6 @@ O arquivo **`sim/simulation.sim1`** contém o circuito completo, criado no **Sim
 | `PORTB3` | 220 Ω | `PEDESTRE-VERDE` | Verde | 3,5 V |
 | `PORTB4` | 220 Ω | `PEDESTRE-VERMELHO` | Vermelho | 1,8 V |
 | `PORTD2` | — | Chave (botão de pedestre) → GND | — | — |
-
-Todos os LEDs têm corrente máxima de 30 mA. Com 5 V e 220 Ω, a corrente fica em ≈ 7 mA (verdes), ≈ 12 mA (amarelo) e ≈ 14 mA (vermelhos); por isso os LEDs verdes aparecem mais fracos na simulação, devido ao limiar de 3,5 V configurado.
 
 ### Como executar
 1. Compile o firmware com `pio run` e copie `.pio/build/ATmega328P/firmware.hex` para `sim/`.
